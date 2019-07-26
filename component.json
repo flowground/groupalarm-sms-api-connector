@@ -1,0 +1,231 @@
+{
+    "title": "groupalarm SMS API",
+    "description": "The sms service implements all sms functions for GroupAlarm\n\n# Authentication\n\n<!-- ReDoc-Inject: <security-definitions> -->",
+    "docsUrl": "",
+    "url": "https://app.groupalarm.com/api/v1/sms",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://app.groupalarm.com/api/v1/sms",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_API_Token": {
+                "label": "API-TOKEN (API_Token)",
+                "viewClass": "TextFieldView",
+                "note": "To use this API, you need an API-Token from the RBAC settings of your GroupAlarm organization. Place the token inside the HTTP-Header `API-Token` for every request, otherwise the API will return an \"401 Unauthorized\" error for your request."
+            },
+            "auth_Personal-Access-Token": {
+                "label": "Personal-Access-Token (Personal-Access-Token)",
+                "viewClass": "TextFieldView",
+                "note": "To use this API, you need a Personal Access Token from your profile settings. Place the token inside the HTTP-Header `Personal-Access-Token` for every request, otherwise the API will return an \"401 Unauthorized\" error for your request."
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ListConfigurations": {
+            "main": "./lib/actions/ListConfigurations.js",
+            "title": "ListConfigurations",
+            "description": "Returns all sms-alarming configurations",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListConfigurations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateConfiguration": {
+            "main": "./lib/actions/UpdateConfiguration.js",
+            "title": "UpdateConfiguration",
+            "description": "Updates an existing sms-alarming configuration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateConfiguration": {
+            "main": "./lib/actions/CreateConfiguration.js",
+            "title": "CreateConfiguration",
+            "description": "Creates a new sms-alarming configuration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteConfiguration": {
+            "main": "./lib/actions/DeleteConfiguration.js",
+            "title": "DeleteConfiguration",
+            "description": "Deletes an existing sms-alarming configuration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDisabledOrganization": {
+            "main": "./lib/actions/GetDisabledOrganization.js",
+            "title": "GetDisabledOrganization",
+            "description": "Returns whether the given organization has disabled this way of alarming or not",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDisabledOrganization.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SetDisabledOrganization": {
+            "main": "./lib/actions/SetDisabledOrganization.js",
+            "title": "SetDisabledOrganization",
+            "description": "Sets whether the given organization has this way of alarming disabled or not",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SetDisabledOrganization.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "List": {
+            "main": "./lib/actions/List.js",
+            "title": "List",
+            "description": "Returns all gsm numbers for queried owner",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Update": {
+            "main": "./lib/actions/Update.js",
+            "title": "Update",
+            "description": "Updates an existing gsm configuration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Create": {
+            "main": "./lib/actions/Create.js",
+            "title": "Create",
+            "description": "Create a gsm configuration for specific user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Delete": {
+            "main": "./lib/actions/Delete.js",
+            "title": "Delete",
+            "description": "Delete an existing gsm configuration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "List_1": {
+            "main": "./lib/actions/List_1.js",
+            "title": "List",
+            "description": "Returns an gsm number configuration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/List_1.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

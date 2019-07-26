@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "SMSAlarmingConfiguration describes all data needed to configure some kind of sms alarming",
+            "type": "object",
+            "properties": {
+                "gsm": {
+                    "type": "string",
+                    "x-go-name": "GSM"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "ID"
+                },
+                "organizationID": {
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "OrganizationID"
+                },
+                "pin": {
+                    "type": "string",
+                    "x-go-name": "PIN"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/sms/api/services"
+        }
+    }
+}

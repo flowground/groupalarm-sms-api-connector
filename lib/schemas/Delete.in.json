@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "mobileID": {
+            "required": true,
+            "type": "int64"
+        },
+        "organization_id": {
+            "type": "int64"
+        }
+    }
+}

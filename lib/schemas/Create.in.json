@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "organization_id": {
+            "type": "int64"
+        },
+        "requestBody": {
+            "description": "Mobile is the definition of a mobile configuration",
+            "type": "object",
+            "properties": {
+                "active": {
+                    "description": "true, if this configuration can be used for alarm notifications",
+                    "type": "boolean",
+                    "x-go-name": "Active"
+                },
+                "gsm": {
+                    "description": "gsm number for alarm notifications with sms (E.164-format with 00 instead of +)",
+                    "type": "string",
+                    "x-go-name": "GSM"
+                },
+                "id": {
+                    "description": "id for this configuration",
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "ID"
+                },
+                "name": {
+                    "description": "user defined name for this configuration",
+                    "type": "string",
+                    "x-go-name": "Name"
+                },
+                "ownerID": {
+                    "description": "user id, who owns this configuration",
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "OwnerID"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/sms/api/services"
+        }
+    }
+}
